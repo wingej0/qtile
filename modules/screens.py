@@ -10,7 +10,7 @@ secondary_widgets = init_widgets(2)
 vertical_widgets = init_widgets(3)
 
 # Remove SysTray from secondary monitors
-del secondary_widgets[3:4]
+# del secondary_widgets[3:4]
 del vertical_widgets[3:4]
 
 # Remove all but the layout widgets from vertical monitor
@@ -21,26 +21,26 @@ screens = [
     Screen(
         top=bar.Bar(
             widgets=main_widgets,
-            size=36,
-            background=theme.bg,
-            margin=0, 
-            opacity=0.9
-        ),
-    ),
-    Screen(
-        top=bar.Bar(
-            widgets=vertical_widgets,
-            size=36,
-            background=theme.bg,
-            margin=0, 
+            size=30,
+            background="#00000000",
+            margin=8, 
             opacity=0.9
         ),
     ),
     Screen(
         top=bar.Bar(
             widgets=secondary_widgets,
-            size=36,
-            background=theme.bg,
+            size=30,
+            background="#00000000",
+            margin=8, 
+            opacity=0.9
+        ),
+    ),
+    Screen(
+        top=bar.Bar(
+            widgets=secondary_widgets,
+            size=30,
+            background="#00000000",
             margin=0, 
             opacity=0.9
         ),

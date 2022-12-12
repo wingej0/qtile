@@ -170,3 +170,29 @@ mouse = [
          start=lazy.window.get_size()),
     Click([mod], "Button2", lazy.window.bring_to_front())
 ]
+
+# Application keybindings
+keys.extend([
+    Key([mod, "shift"], "Return", lazy.spawn("pcmanfm"),
+        desc="Launch file browser"),
+    Key([mod], "Space", lazy.spawn("sh /home/wingej0/.config/rofi/launchers/type-3/launcher.sh"),
+        desc="Application launcher"),
+    Key([mod], "b", lazy.spawn("firefox"),
+        desc="Launch web browser"),
+    Key([mod], "m", lazy.spawn("mailspring"),
+        desc="Launch email client"),
+    Key([mod], "e", lazy.spawn("sleek"),
+        desc="Launch task manager"),
+])
+
+# Media Keys
+keys.extend([
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer -i 5 #to increase 5%"),
+        desc="Volume Up"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer -d 5 #to decrease 5%"),
+        desc="Volume Down"),
+    Key([], "XF86AudioMute", lazy.spawn("pamixer --toggle-mute"),
+        desc="Toggle Mute"),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"),
+        desc="Play/Pause"),
+])

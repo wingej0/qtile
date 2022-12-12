@@ -1,6 +1,6 @@
 # Import external files
 from modules.groups import groups
-# from modules.hooks import *
+from modules.hooks import *
 from modules.keys import keys, mod
 from modules.layouts import layouts, floating_layout
 from modules.screens import screens
@@ -23,4 +23,4 @@ reconfigure_screens = True
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
 auto_minimize = True
-wmname = "Qtile 0.22.1"
+wmname = "qtile"

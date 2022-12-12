@@ -1,133 +1,175 @@
 import subprocess
 
-from libqtile import widget
+from qtile_extras import widget
+from qtile_extras.widget.decorations import PowerLineDecoration
 from colors import theme
 from .widget_defaults import widget_defaults
 
+powerline_left = {
+    "decorations": [
+        PowerLineDecoration(
+            path="rounded_left",
+        )
+    ]
+}
+
+powerline_right = {
+    "decorations": [
+        PowerLineDecoration(
+            path="rounded_right",
+        )
+    ]
+}
+
 def init_widgets(instance):
     widgets_list = [
+        widget.Sep(
+            linewidth = 0,
+            **powerline_right
+        ),
+        widget.TextBox(
+            background=theme.color2,
+            fontsize=30,
+            foreground=theme.bg,
+            text="",
+            **powerline_left
+        ),
         widget.GroupBox(
-            active=theme.fg,
             background=theme.bg,
             disable_drag = True,
             font="FontAwesome6Free",
-            fontsize=17,
+            fontsize=14,
             hide_unused=True,
-            highlight_method="block",
+            highlight_method="line",
             inactive=theme.fg,
-            margin=3,
             other_current_screen_border = theme.color5,
             other_screen_border = theme.color5,
-            padding=7,
-            rounded=True,
+            padding=3,
             this_current_screen_border=theme.color2,
             this_screen_border = theme.color4,
-            urgent_alert_method = "block",
+            urgent_alert_method = "line",
             urgent_border = theme.color1,
             urgent_text = theme.color1,
             use_mouse_wheel = False,
-        ),
-        widget.TaskList(
-            border = theme.color2,
-            borderwidth = 1,
-            font = "Fira Code Nerd Font Bold",
-            fontsize = 12,
-            highlight_method = "block",
-            icon_size = 0,
-            margin = 3,
-            max_title_width=250,
-            padding_y = 7,
-            padding_x = 20,
-            rounded = True,
-            title_width_method = "uniform",
-            urgent_alert_method = "border",
-            urgent_border = theme.color1,
+            **powerline_left
         ),
         widget.Sep(
             linewidth = 0,
-            padding = 10
-        ),
-        widget.Systray(
-            icon_size = 20,
-            padding = 4,
-            **widget_defaults
+            padding = 20
         ),
         widget.Sep(
             linewidth = 0,
-            padding = 10
+            **powerline_right
         ),
         widget.CurrentLayoutIcon(
-            scale = 0.5,
-            **widget_defaults
+            scale = 0.6,
+            background=theme.color4,
+            foreground=theme.bg,
+            **powerline_left
         ),
-        widget.CurrentLayout(**widget_defaults),
-        widget.Sep(
-            linewidth = 0,
-            padding = 10
-        ),
-        widget.TextBox(
-            font = "FontAwesome6Free",
-            fontsize = 18,
-            foreground = theme.color1,
-            text = " ",
-        ),
-        widget.Battery(
-            format = "{percent:2.0%} | {hour:d}:{min:02d}",
-            **widget_defaults
-        ),
-        widget.GenPollText(
-            fmt = "{}",
-            func = lambda: subprocess.check_output("/home/wingej0/.config/qtile/scripts/charge-thresholds.sh").decode("utf-8").strip(),
-            update_interval = 300,
-            **widget_defaults
-        ),
-        widget.Sep(
-            linewidth = 0,
-            padding = 10
-        ),
-        widget.TextBox(
-            font = "FontAwesome6Free",
-            fontsize = 18,
-            foreground = theme.color3,
-            text = "",
-        ),
-        widget.Memory(**widget_defaults),
-        widget.Sep(
-            linewidth = 0,
-            padding = 10
-        ),
-        widget.GenPollText(
-            fmt = "{}",
-            font = "FontAwesome6Free",
-            fontsize = 18,
-            foreground = theme.color4,
-            func = lambda: subprocess.check_output("/home/wingej0/.config/qtile/scripts/check-spotify.sh").decode("utf-8").strip(),
-            update_interval = 60,
-        ),
-        widget.Mpris2(
-            display_metadata = ['xesam:title', 'xesam:artist', 'xesam:album'],
-            fmt = " {} ",
-            name = "Spotify",
-            objname = "org.mpris.MediaPlayer2.spotify",
-            padding = 10,
-            paused_text = " {track}",
-            width = 175,
-            **widget_defaults
-        ),
-        widget.TextBox(
-            font = "FontAwesome6Free",
-            fontsize = 18,
-            foreground = theme.color5,
-            text = " ",
-        ),
-        widget.Clock(
-            format='%b %d | %I:%M %p',
-            **widget_defaults
+        widget.CurrentLayout(
+            padding=10,
+            **widget_defaults,
+            **powerline_left
         ),
         widget.Sep(
             linewidth = 0,
             padding = 20,
         ),
+        # widget.Systray(),
+        widget.Spacer(),
+        widget.Sep(
+            linewidth = 0,
+            **powerline_right
+        ),
+        widget.TextBox(
+            background = theme.color5,
+            font = "FontAwesome6Free",
+            fontsize = 18,
+            foreground = theme.bg,
+            text = "",
+            **powerline_left
+        ),
+        widget.Clock(
+            format=' %b %d, %Y | %I:%M %p',
+            **widget_defaults,
+            **powerline_left
+        ),
+        widget.Spacer(),
+        widget.Sep(
+            linewidth = 0,
+            **powerline_right
+        ),
+        widget.TextBox(
+            background=theme.color1,
+            font = "FontAwesome6Free",
+            fontsize = 18,
+            foreground = theme.bg,
+            text = "",
+            **powerline_left
+        ),
+        widget.Battery(
+            format = " {percent:2.0%} | {hour:d}:{min:02d} ",
+            **widget_defaults,
+        ),
+        widget.TextBox(
+            text="漣",
+            **widget_defaults,
+            **powerline_left
+        ),
+        widget.Sep(
+            linewidth = 0,
+            padding = 20,
+        ),
+        widget.Sep(
+            linewidth = 0,
+            **powerline_right
+        ),
+         widget.TextBox(
+            font = "FontAwesome6Free",
+            fontsize = 18,
+            background = theme.color3,
+            foreground=theme.bg,
+            text = "",
+            **powerline_left
+        ),
+        widget.Memory(**widget_defaults),
+        widget.TextBox(
+            text="",
+            **widget_defaults,
+            **powerline_left
+        ),
+        widget.Sep(
+            linewidth = 0,
+            padding = 20,
+        ),
+        widget.Sep(
+            linewidth = 0,
+            **powerline_right
+        ),
+        widget.TextBox(
+            background=theme.color2,
+            font = "FontAwesome6Free",
+            fontsize = 18,
+            foreground = theme.bg,
+            text = "",
+            **powerline_left
+        ),
+        widget.Mpris2(
+            display_metadata = ['xesam:title', 'xesam:artist', 'xesam:album'],
+            fmt = "{}",
+            name = "Spotify",
+            objname = "org.mpris.MediaPlayer2.spotify",
+            padding = 10,
+            paused_text = " {track}",
+            width = 175,
+            **widget_defaults,
+        ),
+        widget.TextBox(
+            text="",
+            **widget_defaults,
+            **powerline_left
+        )
     ]
 
     return widgets_list

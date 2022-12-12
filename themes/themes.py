@@ -130,3 +130,22 @@ manjaro = dict(
     color6 = "#562EB2",
     color6_accent = "#562EB2",
 )
+
+catppuccin = dict(
+    bg = "#1E1E2E",
+    bg_accent = "#1E1E2E",
+    fg = "#CDD6F4",
+    fg_accent = "#CDD6F4",
+    color1 = "#F38BA8",
+    color1_accent = "#F38BA8",
+    color2 = "#A6E3A1",
+    color2_accent = "#A6E3A1",
+    color3 = "#F9E2AF",
+    color3_accent = "#F9E2AF",
+    color4 = "#89B4FA",
+    color4_accent = "#89B4FA",
+    color5 = "#F5C2E7",
+    color5_accent = "#F5C2E7",
+    color6 = "#94E2D5",
+    color6_accent = "#94E2D5",
+)

@@ -5,8 +5,8 @@ from libqtile.config import Match
 
 # Define layouts and layout themes
 layout_theme = {
-        "margin":4,
-        "border_width": 2,
+        "margin":6,
+        "border_width": 4,
         "border_focus": theme.color2,
         "border_normal": theme.bg
     }
