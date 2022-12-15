@@ -1,9 +1,12 @@
 import subprocess
 
+from libqtile import qtile
 from qtile_extras import widget
 from qtile_extras.widget.decorations import PowerLineDecoration
 from colors import theme
 from .widget_defaults import widget_defaults
+
+from libqtile.log_utils import logger
 
 powerline_left = {
     "decorations": [
@@ -20,6 +23,16 @@ powerline_right = {
         )
     ]
 }
+
+# Mouse callback functions
+def launch_htop():
+    qtile.cmd_spawn("alacritty -e htop")
+
+def powermenu():
+    qtile.cmd_spawn("sh /home/wingej0/.config/rofi/powermenu/type-4/powermenu.sh")
+
+def power_management():
+    qtile.cmd_spawn("sh /home/wingej0/.config/qtile/scripts/power-options.sh")
 
 def init_widgets(instance):
     widgets_list = [
@@ -63,7 +76,7 @@ def init_widgets(instance):
         ),
         widget.CurrentLayoutIcon(
             scale = 0.6,
-            background=theme.color4,
+            background=theme.color6,
             foreground=theme.bg,
             **powerline_left
         ),
@@ -76,7 +89,14 @@ def init_widgets(instance):
             linewidth = 0,
             padding = 20,
         ),
-        # widget.Systray(),
+        widget.WidgetBox(
+            foreground=theme.bg,
+            text_closed="",
+            text_open="",
+            widgets=[
+                widget.Systray(),
+            ]
+        ),
         widget.Spacer(),
         widget.Sep(
             linewidth = 0,
@@ -93,7 +113,14 @@ def init_widgets(instance):
         widget.Clock(
             format=' %b %d, %Y | %I:%M %p',
             **widget_defaults,
-            **powerline_left
+        ),
+        widget.TextBox(
+            text=" ",
+            mouse_callbacks = {
+                'Button1' : powermenu,
+            },
+            **widget_defaults,
+            **powerline_left,
         ),
         widget.Spacer(),
         widget.Sep(
@@ -109,11 +136,20 @@ def init_widgets(instance):
             **powerline_left
         ),
         widget.Battery(
-            format = " {percent:2.0%} | {hour:d}:{min:02d} ",
+            format = " {percent:2.0%}",
             **widget_defaults,
+        ),
+        widget.GenPollText(
+            fmt = "{}",
+            func = lambda: subprocess.check_output("/home/wingej0/.config/qtile/scripts/charge-thresholds.sh").decode("utf-8").strip(),
+            update_interval = 300,
+            **widget_defaults
         ),
         widget.TextBox(
             text="漣",
+            mouse_callbacks = {
+                'Button1' : power_management,
+            },
             **widget_defaults,
             **powerline_left
         ),
@@ -136,6 +172,9 @@ def init_widgets(instance):
         widget.Memory(**widget_defaults),
         widget.TextBox(
             text="",
+            mouse_callbacks = {
+                 "Button1" : launch_htop
+            },
             **widget_defaults,
             **powerline_left
         ),
@@ -148,7 +187,7 @@ def init_widgets(instance):
             **powerline_right
         ),
         widget.TextBox(
-            background=theme.color2,
+            background=theme.color2_accent,
             font = "FontAwesome6Free",
             fontsize = 18,
             foreground = theme.bg,

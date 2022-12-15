@@ -1,0 +1,3 @@
+#!/bin/bash
+
+system76-power charge-thresholds --profile max_lifespan

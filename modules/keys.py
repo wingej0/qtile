@@ -177,16 +177,34 @@ keys.extend([
         desc="Launch file browser"),
     Key([mod], "Space", lazy.spawn("sh /home/wingej0/.config/rofi/launchers/type-3/launcher.sh"),
         desc="Application launcher"),
+    Key(["control", "mod1"], "delete", lazy.spawn("sh /home/wingej0/.config/rofi/powermenu/type-4/powermenu.sh"),
+        desc="Launch powermenu"),
     Key([mod], "b", lazy.spawn("firefox"),
         desc="Launch web browser"),
     Key([mod], "m", lazy.spawn("mailspring"),
         desc="Launch email client"),
     Key([mod], "e", lazy.spawn("sleek"),
         desc="Launch task manager"),
-])
+    Key([mod], "c", lazy.spawn("google-chrome-stable --app=https://calendar.google.com"),
+        desc="Launch Calendar"),
+    Key([mod], "t", lazy.spawn("telegram-desktop"),
+        desc="Launch Telegram"),
+    
+    # System76 Power Management
+    Key(["control", "mod1"], "b", lazy.spawn("system76-power charge-thresholds --profile balanced"),
+        desc="Set charge threshold to balanced"),
+    Key(["control", "mod1"], "d", lazy.spawn("system76-power charge-thresholds --profile max_lifespan"),
+        desc="Set charge threshold to max lifespan"),
+    Key(["control", "mod1"], "f", lazy.spawn("system76-power charge-thresholds --profile full_charge"),
+        desc="Set charge threshold to full charge"),
+    Key(["control", "mod1"], "n", lazy.spawn("system76-power profile balanced"),
+        desc="Set power profile to balanced"),
+    Key(["control", "mod1"], "l", lazy.spawn("system76-power profile battery"),
+        desc="Set power profile to battery life"),
+    Key(["control", "mod1"], "p", lazy.spawn("system76-power profile performance"),
+        desc="Set power profile to performance"),
 
-# Media Keys
-keys.extend([
+    # Media Keys
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer -i 5 #to increase 5%"),
         desc="Volume Up"),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer -d 5 #to decrease 5%"),
@@ -195,4 +213,15 @@ keys.extend([
         desc="Toggle Mute"),
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"),
         desc="Play/Pause"),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next"),
+        desc="Next Song"),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"),
+        desc="Previous Song"),
+    Key([], "XF86AudioStop", lazy.spawn("playerctl stop"),
+        desc="Stop"),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 5"),
+        desc="Increase brightness"),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 5"),
+        desc="Decrease brightness"),
 ])
+
