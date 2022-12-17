@@ -124,10 +124,10 @@ keys = [
         lazy.to_screen(0),
         desc='Keyboard focus to monitor 1'),
     Key([mod], "o",
-        lazy.to_screen(2),
+        lazy.to_screen(1),
         desc='Keyboard focus to monitor 2'),
     Key([mod], "p",
-        lazy.to_screen(1),
+        lazy.to_screen(2),
         desc='Keyboard focus to monitor 3'),
 
     # Switch focus of monitors

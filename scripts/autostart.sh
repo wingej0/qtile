@@ -9,6 +9,7 @@ function run {
 
 #starting utility applications at boot time
 run nm-applet &
+numlockx &
 clipit &
 firewall-applet &
 picom &
