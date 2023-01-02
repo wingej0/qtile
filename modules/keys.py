@@ -173,7 +173,7 @@ mouse = [
 
 # Application keybindings
 keys.extend([
-    Key([mod, "shift"], "Return", lazy.spawn("pcmanfm"),
+    Key([mod, "shift"], "Return", lazy.spawn("thunar"),
         desc="Launch file browser"),
     Key([mod], "Space", lazy.spawn("sh /home/wingej0/.config/rofi/launchers/type-3/launcher.sh"),
         desc="Application launcher"),

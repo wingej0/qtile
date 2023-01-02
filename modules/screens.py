@@ -28,6 +28,8 @@ screens = [
             margin=8, 
             opacity=0.9
         ),
+        wallpaper="/home/wingej0/Pictures/wallpapers/wallpapers/0066.jpg",
+        wallpaper_mode="fill"
     ),
     Screen(
         top=bar.Bar(

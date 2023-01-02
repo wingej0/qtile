@@ -44,7 +44,7 @@ def init_widgets(instance):
             background=theme.color2,
             fontsize=30,
             foreground=theme.bg,
-            text="",
+            text="",
             **powerline_left
         ),
         widget.GroupBox(
