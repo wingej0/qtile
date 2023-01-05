@@ -1,4 +1,4 @@
-from .widgets import init_widgets
+from .widgets import init_widgets, init_bottom_widgets
 from colors import theme
 
 from qtile_extras import widget
@@ -9,14 +9,14 @@ from libqtile.config import Screen
 main_widgets = init_widgets(1)
 secondary_widgets = init_widgets(2)
 vertical_widgets = init_widgets(3)
+bottom_widgets = init_bottom_widgets(1)
+secondary_bottom_widgets = init_bottom_widgets(2)
 
-# Remove systray from second monitor (Qtile only supports systray on one monitor)
-del secondary_widgets[8:9]
+# Remove all widgets from vertical monitor except groupbox and Mpris2
+del vertical_widgets[10:15]
 
-# Remove all widgets from vertical monitor except groupbox and layout
-# Add a spacer for aesthetics
-del vertical_widgets[7:30]
-vertical_widgets.insert(3, widget.Spacer())
+# Remove Systray from bottom bar for second monitor
+del secondary_bottom_widgets[9:10]
 
 # Define 3 monitors
 screens = [
@@ -25,10 +25,28 @@ screens = [
             widgets=main_widgets,
             size=30,
             background="#00000000",
-            margin=8, 
+            margin=4, 
             opacity=0.9
         ),
-        wallpaper="/home/wingej0/Pictures/wallpapers/wallpapers/0066.jpg",
+        bottom=bar.Bar(
+            widgets=bottom_widgets,
+            size=24,
+            background=theme.bg,
+            margin=0, 
+            opacity=0.9
+        ),
+        wallpaper=theme.wallpaper1,
+        wallpaper_mode="fill"
+    ),
+    Screen(
+        top=bar.Bar(
+            widgets=vertical_widgets,
+            size=30,
+            background="#00000000",
+            margin=4, 
+            opacity=0.9
+        ),
+        wallpaper=theme.wallpaper3,
         wallpaper_mode="fill"
     ),
     Screen(
@@ -36,17 +54,17 @@ screens = [
             widgets=secondary_widgets,
             size=30,
             background="#00000000",
-            margin=8, 
+            margin=4, 
             opacity=0.9
         ),
-    ),
-    Screen(
-        top=bar.Bar(
-            widgets=vertical_widgets,
-            size=30,
-            background="#00000000",
-            margin=8, 
+        bottom=bar.Bar(
+            widgets=secondary_bottom_widgets,
+            size=24,
+            background=theme.bg,
+            margin=0, 
             opacity=0.9
         ),
+        wallpaper=theme.wallpaper2,
+        wallpaper_mode="fill"
     ),
 ]

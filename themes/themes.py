@@ -148,4 +148,7 @@ catppuccin = dict(
     color5_accent = "#F5C2E7",
     color6 = "#94E2D5",
     color6_accent = "#94E2D5",
+    wallpaper1 = "~/.config/qtile/themes/wallpapers/catppuccin1.jpg",
+    wallpaper2 = "~/.config/qtile/themes/wallpapers/catppuccin2.jpg",
+    wallpaper3 = "~/.config/qtile/themes/wallpapers/catppuccin3.jpg",
 )

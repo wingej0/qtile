@@ -123,10 +123,10 @@ keys = [
     Key([mod], "i",
         lazy.to_screen(0),
         desc='Keyboard focus to monitor 1'),
-    Key([mod], "o",
+    Key([mod], "p",
         lazy.to_screen(1),
         desc='Keyboard focus to monitor 2'),
-    Key([mod], "p",
+    Key([mod], "o",
         lazy.to_screen(2),
         desc='Keyboard focus to monitor 3'),
 
@@ -173,11 +173,13 @@ mouse = [
 
 # Application keybindings
 keys.extend([
+    Key([mod], "Escape", lazy.spawn("xflock4"),
+        desc="Lock screen"),
     Key([mod, "shift"], "Return", lazy.spawn("thunar"),
         desc="Launch file browser"),
-    Key([mod], "Space", lazy.spawn("sh /home/wingej0/.config/rofi/launchers/type-3/launcher.sh"),
+    Key([mod], "Space", lazy.spawn("xfce4-appfinder"),
         desc="Application launcher"),
-    Key(["control", "mod1"], "delete", lazy.spawn("sh /home/wingej0/.config/rofi/powermenu/type-4/powermenu.sh"),
+    Key(["control", "mod1"], "delete", lazy.spawn("xfce4-session-logout"),
         desc="Launch powermenu"),
     Key([mod], "b", lazy.spawn("firefox"),
         desc="Launch web browser"),
@@ -223,5 +225,9 @@ keys.extend([
         desc="Increase brightness"),
     Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 5"),
         desc="Decrease brightness"),
+
+    # Toggle bottom bar
+    Key([mod], "z", lazy.hide_show_bar("bottom"),
+        desc="Toggle bottom bar")
 ])
 
