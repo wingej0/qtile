@@ -208,7 +208,7 @@ def init_bottom_widgets(instance):
         widget.Battery(
             background=theme.color1,
             foreground=theme.bg,
-            format = "{percent:2.0%} ({hour:d}:{min:02d})",
+            format = "{percent:2.0%}",
             mouse_callbacks = {
                 'Button1' : power_management,
             },

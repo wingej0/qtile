@@ -15,6 +15,9 @@ nord = dict(
     color5_accent = "#8c738c",
     color6 = "#88c0d0",
     color6_accent = "#6d96a5",
+    wallpaper1 = "~/.config/qtile/themes/wallpapers/eagles1.png",
+    wallpaper2 = "~/.config/qtile/themes/wallpapers/eagles2.jpg",
+    wallpaper3 = "~/.config/qtile/themes/wallpapers/eagles3.jpg",
 )
 
 everforest = dict(
@@ -110,6 +113,9 @@ gruvbox = dict(
     color5_accent = "#d3869b",
     color6 = "#689d6a",
     color6_accent = "#8ec07c",
+    wallpaper1 = "~/.config/qtile/themes/wallpapers/eagles1.png",
+    wallpaper2 = "~/.config/qtile/themes/wallpapers/eagles2.jpg",
+    wallpaper3 = "~/.config/qtile/themes/wallpapers/eagles3.jpg",
 )
 
 manjaro = dict(
@@ -148,7 +154,29 @@ catppuccin = dict(
     color5_accent = "#F5C2E7",
     color6 = "#94E2D5",
     color6_accent = "#94E2D5",
-    wallpaper1 = "~/.config/qtile/themes/wallpapers/catppuccin1.jpg",
-    wallpaper2 = "~/.config/qtile/themes/wallpapers/catppuccin2.jpg",
-    wallpaper3 = "~/.config/qtile/themes/wallpapers/catppuccin3.jpg",
+    wallpaper1 = "~/.config/qtile/themes/wallpapers/eagles1.png",
+    wallpaper2 = "~/.config/qtile/themes/wallpapers/eagles2.jpg",
+    wallpaper3 = "~/.config/qtile/themes/wallpapers/eagles3.jpg",
+)
+
+eagles = dict(
+    bg = "#000000",
+    bg_accent = "#000000",
+    fg = "#ffffff",
+    fg_accent = "#ffffff",
+    color1 = "##540800",
+    color1_accent = "##540800",
+    color2 = "#004C54",
+    color2_accent = "#004C54",
+    color3 = "#ACC0C6",
+    color3_accent = "#ACC0C6",
+    color4 = "#002254",
+    color4_accent = "#002254",
+    color5 = "#54004C",
+    color5_accent = "#54004C",
+    color6 = "#4C5400",
+    color6_accent = "#4C5400",
+    wallpaper1 = "~/.config/qtile/themes/wallpapers/eagles1.png",
+    wallpaper2 = "~/.config/qtile/themes/wallpapers/eagles2.jpg",
+    wallpaper3 = "~/.config/qtile/themes/wallpapers/eagles3.jpg",
 )
